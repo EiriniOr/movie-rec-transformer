@@ -154,7 +154,7 @@ if loss_fig:
     st.plotly_chart(loss_fig, use_container_width=True)
     st.caption(
         "MF uses MSE loss on implicit-feedback (user, movie) pairs. "
-        "Transformer uses cross-entropy on next-item prediction from sliding windows of length 50."
+        "Transformer uses cross-entropy on next-item prediction from sliding windows of length 10."
     )
 else:
     st.info("Loss curves not found in artifacts/. Train both models to generate them.")

@@ -47,7 +47,7 @@ class TransformerRecommender(nn.Module):
         num_heads: int = 2,
         num_layers: int = 2,
         ffn_dim: int = 256,
-        max_seq_len: int = 50,
+        max_seq_len: int = 10,
         dropout: float = 0.1,
         pad_idx: int | None = None,
     ) -> None:
