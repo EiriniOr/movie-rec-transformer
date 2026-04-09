@@ -159,7 +159,7 @@ with col_right:
     | Embedding dim | 128 | Enough capacity, not overparameterised |
     | Layers | 2 | Captures 2nd-order context |
     | Heads | 2 | Two independent attention patterns |
-    | Window | 50 | Covers typical recent watch history |
+    | Window | 10 | Focuses on most recent viewing context |
     | Causal mask | ✓ | Prevents attending to future items |
     """)
 

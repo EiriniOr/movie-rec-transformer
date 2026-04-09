@@ -42,7 +42,7 @@ flowchart LR
 | Layers | 2 | Captures 2nd-order context; faster than 4+ |
 | Attention heads | 2 | Two independent patterns (genre, recency) |
 | FFN dim | 256 | Standard 2× embed_dim |
-| Window size | 50 | Covers typical recent watch history |
+| Window size | 10 | Focuses on most recent viewing context |
 | Causal mask | ✓ | Position t attends only to positions ≤ t |
 | Loss | CrossEntropyLoss | Next-item prediction (same as language modelling) |
 | Optimizer | Adam, lr=1e-3 | Adaptive; gradient clipping at norm=1.0 |

@@ -262,7 +262,7 @@ with col_a:
     st.markdown("""
     #### How the Transformer handles this
 
-    The Transformer only looks at your **most recent window of up to 50 movies**.
+    The Transformer only looks at your **most recent window of up to 10 movies**.
     It doesn't average — it attends, giving more weight to recent history.
 
     If your last 10 films are all quiet dramas, the model picks up on that
@@ -339,3 +339,46 @@ st.markdown("""
 | Order | Recent movies get more influence than old ones; current mood beats all-time average |
 | Training | The model practises on millions of real sequences, predicting the next movie given everything before it |
 """)
+
+# ── possible next step ─────────────────────────────────────────────────────────
+
+st.markdown("---")
+st.markdown(
+    '<div class="section-header">Possible Next Step</div>', unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+<div class="callout">
+<strong>Fine-tuning a pretrained language model (e.g. T5) for recommendation</strong><br><br>
+
+The system described here learns movie representations purely from co-occurrence patterns
+in watch histories — it has no knowledge of what a movie <em>is</em>.  It knows that users
+who watch <em>Inception</em> often also watch <em>Interstellar</em>, but it doesn't know
+<em>why</em>: both are directed by Christopher Nolan, both are cerebral sci-fi that play
+with time and perception, and both share a visual and tonal style.<br><br>
+
+A pretrained language model like <strong>T5</strong> or <strong>BERT</strong> already
+holds this kind of world knowledge from training on text — reviews, plot summaries, interviews,
+Wikipedia articles.  Fine-tuning it for recommendation would let the model combine two signals:
+<ul>
+  <li><strong>Behavioural signal</strong> — the sequential patterns from watch histories
+      (what this system already captures)</li>
+  <li><strong>Semantic signal</strong> — the meaning behind the movies: genre, director,
+      themes, tone, era, cultural context</li>
+</ul>
+
+This means a user who just watched <em>Inception</em> and <em>Interstellar</em> back to back
+could receive a recommendation for <em>Memento</em> — not just because other users make that
+transition, but because the model understands all three are Nolan films built around fractured
+time and unreliable reality.<br><br>
+
+The approach would be to represent each movie as a short text (title + genre + a brief plot
+description), encode it with the language model's encoder, and replace the learned movie
+embedding table in this Transformer with those richer, pretrained representations.  The rest
+of the architecture — positional embeddings, attention layers, next-item prediction head —
+stays the same.
+</div>
+""",
+    unsafe_allow_html=True,
+)
