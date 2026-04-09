@@ -79,7 +79,11 @@ class TransformerRecommender(nn.Module):
             batch_first=True,  # (batch, seq, embed) — more intuitive than (seq, batch, embed)
             norm_first=True,  # Pre-LN is more stable than post-LN for small models
         )
-        self.transformer = nn.TransformerEncoder(encoder_layer, num_layers=num_layers)
+        self.transformer = nn.TransformerEncoder(
+            encoder_layer,
+            num_layers=num_layers,
+            enable_nested_tensor=False,  # norm_first=True is incompatible with nested tensors; silence the warning
+        )
 
         # Project from embed_dim → vocabulary logits at every sequence position
         self.output_head = nn.Linear(embed_dim, vocab_size)
