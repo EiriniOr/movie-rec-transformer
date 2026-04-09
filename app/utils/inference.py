@@ -201,15 +201,24 @@ def recommend_mf(
 
 def find_closest_training_user(
     query_history: list[int],
-    sequences_train: dict[int, list[int]],
+    sequences_train: dict[int, list[int]] | None,
     mf_user2idx: dict[int, int],
 ) -> tuple[int, int]:
     """
     Find the training user whose watch history has the most overlap with
     query_history.  Used to proxy MF recommendations for arbitrary inputs.
 
+    sequences_train may be None on Streamlit Cloud (the pkl is too large to
+    commit; only the model weights and small mappings are in the repo).
+    In that case we fall back to user index 0.
+
     Returns (raw_user_id, mf_user_idx).
     """
+    if not sequences_train:
+        # sequences_train not available (Streamlit Cloud deployment) — use first user
+        first_uid = next(iter(mf_user2idx))
+        return first_uid, mf_user2idx[first_uid]
+
     query_set = set(query_history)
     best_uid, best_overlap = -1, -1
     for uid, seq in sequences_train.items():

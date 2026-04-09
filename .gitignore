@@ -1,9 +1,11 @@
-# Data — large files, not versioned
+# Raw downloads — too large for git
 data/raw/
-data/processed/
 
-# Trained model weights
-artifacts/*.pt
+# Large sequence files — not needed at inference time
+data/processed/sequences_train.pkl
+
+# Trained model weights — commit these after training locally, then push
+# artifacts/*.pt   ← uncomment this line to re-exclude weights if repo gets too large
 
 # Python
 __pycache__/
@@ -31,5 +33,5 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Streamlit cache
-.streamlit/
+# Streamlit cache (not the config — that gets committed)
+.streamlit/cache/
