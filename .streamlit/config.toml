@@ -1,0 +1,13 @@
+[theme]
+base = "dark"
+primaryColor = "#56CFB2"
+backgroundColor = "#0e0e1f"
+secondaryBackgroundColor = "#1a1a3a"
+textColor = "#e0e0e0"
+font = "sans serif"
+
+[server]
+headless = true          # required for Streamlit Cloud
+
+[browser]
+gatherUsageStats = false
