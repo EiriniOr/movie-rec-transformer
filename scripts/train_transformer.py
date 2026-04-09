@@ -44,7 +44,7 @@ STRIDE = 5  # step between consecutive windows — stride=1 gives ~22M windows o
 DROPOUT = 0.1
 BATCH_SIZE = 512
 LR = 1e-3
-EPOCHS = 3  # loss converges well within 3 epochs at this data scale
+EPOCHS = 5
 LOG_EVERY = 1000  # print running loss every N batches
 
 
