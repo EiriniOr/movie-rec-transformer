@@ -1,0 +1,12 @@
+{
+  "matrix_factorization": {
+    "hit@10": 0.0388,
+    "ndcg@10": 0.0201,
+    "n_queries": 487623
+  },
+  "transformer": {
+    "hit@10": 0.1964,
+    "ndcg@10": 0.1053,
+    "n_queries": 487623
+  }
+}

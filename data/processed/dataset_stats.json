@@ -1,0 +1,9 @@
+{
+  "n_users": 162541,
+  "n_movies": 59047,
+  "n_ratings_total": 25000095,
+  "avg_sequence_length": 150.8,
+  "min_sequence_length": 17,
+  "max_sequence_length": 32199,
+  "test_items_per_user": 3
+}
