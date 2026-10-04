@@ -1,5 +1,7 @@
 # Sequence-Based Movie Recommender
 
+> 📁 Part of my portfolio: [see this project and more →](https://eirini-portfolio-aer3.vercel.app/?utm_source=github&utm_medium=readme&utm_campaign=movie-rec-transformer#story/sequence-based-movie-recommender)
+
 Comparing **Matrix Factorization** (order-agnostic baseline) against a **Transformer encoder** that models the temporal dynamics of watch history.  Trained on [MovieLens 25M](https://grouplens.org/datasets/movielens/25m/) (25 million ratings, ~162,000 users, ~62,000 movies).
 
 A portfolio-ready Streamlit app with a live demo, side-by-side metrics, and a non-technical explainer.
